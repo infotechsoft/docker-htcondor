@@ -5,10 +5,12 @@
 
 FROM infotechsoft/java:8
 
+ARG HTCONDOR_VERSION=8.6.6
+
 LABEL name="infotechsoft/htcondor" \ 
 	vendor="INFOTECH Soft, Inc." \
-	version="8.6.6" \
-	release-date="2017-10-19"
+	version="${HTCONDOR_VERSION}" \
+	release-date="2017-11-02"
 	
 MAINTAINER Thomas J. Taylor <thomas@infotechsoft.com>
 
@@ -20,11 +22,11 @@ RUN yum -y update && \
     yum -y install curl && \
     curl -o /etc/yum.repos.d/condor.repo http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo && \
     rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \
-	yum -y install --enablerepo=centosplus condor && \
+	yum -y install --enablerepo=centosplus condor-${HTCONDOR_VERSION} && \
 	yum -y clean all && \
 	useradd -m -g condor -u 1000 ${SUBMIT_USER}
 
-# Configure HTCondor	
+# Configure HTCondor
 RUN echo -e "DISCARD_SESSION_KEYRING_ON_STARTUP = False\n\
 TRUST_UID_DOMAIN = True\n\
 ALLOW_WRITE = *\n\
