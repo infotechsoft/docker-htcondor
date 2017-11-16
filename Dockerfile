@@ -5,12 +5,12 @@
 
 FROM infotechsoft/java:8
 
-ARG HTCONDOR_VERSION=8.6.6
+ARG HTCONDOR_VERSION=8.6.7
 
 LABEL name="infotechsoft/htcondor" \ 
 	vendor="INFOTECH Soft, Inc." \
 	version="${HTCONDOR_VERSION}" \
-	release-date="2017-11-02"
+	release-date="2017-11-16"
 	
 MAINTAINER Thomas J. Taylor <thomas@infotechsoft.com>
 
