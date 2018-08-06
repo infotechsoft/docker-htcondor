@@ -5,7 +5,7 @@
 
 FROM infotechsoft/java:8
 
-ARG HTCONDOR_VERSION=8.6.12
+ARG HTCONDOR_VERSION=8.7.9
 
 LABEL name="infotechsoft/htcondor" \ 
 	vendor="INFOTECH Soft, Inc." \
@@ -20,7 +20,7 @@ ARG SUBMIT_USER=submit
 
 RUN yum -y update && \
     yum -y install curl && \
-    curl -o /etc/yum.repos.d/condor.repo http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo && \
+    curl -o /etc/yum.repos.d/condor.repo http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel7.repo && \
     rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \
 	yum -y install --enablerepo=centosplus condor-${HTCONDOR_VERSION} && \
 	yum -y clean all && \
