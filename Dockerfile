@@ -18,13 +18,14 @@ MAINTAINER Thomas J. Taylor <thomas@infotechsoft.com>
 ENV SHARED_PORT 9618
 ARG SUBMIT_USER=submit
 
-RUN yum -y update && \
-    yum -y install curl && \
-    curl -o /etc/yum.repos.d/condor.repo https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo && \
+RUN yum -y -q update && \
+    yum -y -q install curl && \
     rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \
-	yum -y install --enablerepo=centosplus condor-${HTCONDOR_VERSION} && \
-	yum -y clean all && \
-	useradd -m -g condor -u 1000 ${SUBMIT_USER}
+    curl -sS -o /etc/yum.repos.d/condor.repo https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo \
+         -o /etc/yum.repos.d/condor-dev.repo https://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel7.repo && \
+    yum -y -q install --enablerepo=centosplus condor-${HTCONDOR_VERSION} && \
+    yum -y -q clean all && \
+    useradd -m -g condor -u 1000 ${SUBMIT_USER}
 
 # Configure HTCondor
 RUN echo -e "DISCARD_SESSION_KEYRING_ON_STARTUP = False\n\
