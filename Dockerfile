@@ -5,7 +5,7 @@
 
 FROM infotechsoft/java:8
 
-ARG HTCONDOR_VERSION=8.8.1
+ARG HTCONDOR_VERSION=8.9.0
 
 LABEL name="infotechsoft/htcondor" \ 
 	vendor="INFOTECH Soft, Inc." \
