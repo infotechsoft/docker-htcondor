@@ -3,14 +3,14 @@
 # SEE: http://research.cs.wisc.edu/htcondor
 # ===========================================
 
-FROM infotechsoft/java:8
+FROM infotechsoft/java:11
 
-ARG HTCONDOR_VERSION=8.9.0
+ARG HTCONDOR_VERSION=8.8.5
 
 LABEL name="infotechsoft/htcondor" \ 
 	vendor="INFOTECH Soft, Inc." \
 	version="${HTCONDOR_VERSION}" \
-	release-date="2019-04-11"
+	release-date="2019-09-05"
 	
 MAINTAINER Thomas J. Taylor <thomas@infotechsoft.com>
 
