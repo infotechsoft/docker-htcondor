@@ -2,7 +2,7 @@
 <a href="https://research.cs.wisc.edu/htcondor"><img src="https://research.cs.wisc.edu/htcondor/images/white_bird_logo.png" height="48px" alt="HTCondor"/></a> deployment for Docker based on infotechsoft/java
 
 ## Build Details
- * HTCondor Version: 8.8.5
+ * HTCondor Version: 8.9.2
    * http://research.cs.wisc.edu/htcondor/manual/v8.8/index.html
  * Java Version: 11
  
