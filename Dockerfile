@@ -5,15 +5,15 @@
 
 FROM infotechsoft/java:11
 
-ARG HTCONDOR_VERSION=8.9.2
+ARG BUILD_DATE
+ARG HTCONDOR_VERSION=8.9.7
 
 LABEL name="infotechsoft/htcondor" \ 
 	vendor="INFOTECH Soft, Inc." \
 	version="${HTCONDOR_VERSION}" \
-	release-date="2019-09-05"
+	build-date="${BUILD_DATE}"\
+	maintainer="Thomas J. Taylor <thomas@infotechsoft.com>"
 	
-MAINTAINER Thomas J. Taylor <thomas@infotechsoft.com>
-
 # HTCondor - default port for the condor_collector
 ENV SHARED_PORT 9618
 ARG SUBMIT_USER=submit
